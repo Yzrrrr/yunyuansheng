@@ -1,0 +1,23 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: progress-service
+
+  datasource:
+    url: jdbc:mysql://host.docker.internal:3306/progress_db?useSSL=false&serverTimezone=UTC
+    username: root
+    password: yizeren200501
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.31.56:8761/eureka

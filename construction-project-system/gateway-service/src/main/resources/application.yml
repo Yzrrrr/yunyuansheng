@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # 启用 Eureka 服务发现
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: project-service
+          uri: lb://PROJECT-SERVICE
+          predicates:
+            - Path=/project/**
+          filters:
+            - StripPrefix=1
+        - id: progress-service
+          uri: lb://PROGRESS-SERVICE
+          predicates:
+            - Path=/progress/**
+          filters:
+            - StripPrefix=1
+            - name: CircuitBreaker
+              args:
+                name: progressCircuitBreaker
+                fallbackUri: forward:/fallback/progress
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka  # Eureka 服务器地址

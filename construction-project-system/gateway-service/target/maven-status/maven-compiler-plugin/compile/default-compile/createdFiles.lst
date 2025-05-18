@@ -1,0 +1,6 @@
+com/example/gatewayservice/filters/LoggingFilter.class
+com/example/gatewayservice/config/GatewayConfig.class
+com/example/gatewayservice/controllers/FallbackController.class
+com/example/gatewayservice/filters/JwtAuthenticationFilter.class
+com/example/gatewayservice/utils/JwtUtil.class
+com/example/gatewayservice/GatewayServiceApplication.class

@@ -1,0 +1,9 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.example</groupId>
+    <artifactId>construction-project-system</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>staff-service</artifactId>
+</project>
